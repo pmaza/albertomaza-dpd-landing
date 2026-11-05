@@ -1,0 +1,63 @@
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a
+      class="brand"
+      routerLink="/"
+      fragment="inicio"
+      (click)="closeMenu()"
+      aria-label="Alberto Maza Martín, inicio"
+    >
+      <span class="brand-mark" aria-hidden="true">am<span>.</span></span>
+      <span class="brand-name"
+        >Alberto Maza Martín<small>Delegado de Protección de Datos</small></span
+      >
+    </a>
+    <button
+      class="menu-toggle"
+      type="button"
+      (click)="menuOpen.set(!menuOpen())"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="navegacion"
+      [attr.aria-label]="menuOpen() ? 'Cerrar menú' : 'Abrir menú'"
+    >
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="navegacion" aria-label="Navegación principal" [class.is-open]="menuOpen()">
+      <a routerLink="/" fragment="servicios" (click)="closeMenu()">Servicios</a>
+      <a routerLink="/" fragment="sectores" (click)="closeMenu()">Para quién</a>
+      <a routerLink="/" fragment="sobre-mi" (click)="closeMenu()">Sobre mí</a>
+      <a routerLink="/" fragment="preguntas" (click)="closeMenu()">Preguntas frecuentes</a>
+      <a class="button button-small" routerLink="/" fragment="contacto" (click)="closeMenu()"
+        >Hablemos <span aria-hidden="true">↗</span></a
+      >
+    </nav>
+  </div>
+</header>
+<main id="contenido" tabindex="-1">
+  <router-outlet />
+</main>
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div>
+      <a class="footer-brand" routerLink="/"
+        >Alberto Maza Martín<span aria-hidden="true">.</span></a
+      >
+      <p>Protección de datos con criterio.<br />Trato cercano. Atención en toda España.</p>
+    </div>
+    <div class="footer-contact">
+      <a href="mailto:albertodatos@mazadpd.com"
+        >albertodatos&#64;mazadpd.com <span aria-hidden="true">↗</span></a
+      >
+      <a href="tel:+34696532403">696 532 403</a>
+      <span>Salamanca · Servicios para toda España</span>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Alberto Maza Martín</span>
+    <div>
+      <a routerLink="/aviso-legal">Aviso legal</a><a routerLink="/privacidad">Privacidad</a>
+    </div>
+    <span class="footer-note">Sin cookies de analítica ni publicidad</span>
+  </div>
+</footer>
