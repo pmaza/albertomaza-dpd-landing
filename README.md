@@ -52,3 +52,23 @@ En **Settings → Environments**, configura en cada entorno (`development` y `pr
 - Variable `CLOUDFLARE_PROJECT_NAME`: nombre del proyecto Cloudflare Pages de ese entorno.
 
 Configura un proyecto Pages diferente para cada entorno si quieres que desarrollo y producción publiquen sitios separados. Si `production` tiene revisores requeridos, GitHub pedirá aprobación antes de que el job acceda a sus secretos y despliegue. La disponibilidad de las reglas de protección de Environments en repositorios privados depende del plan de GitHub; el inicio manual del workflow permite controlar cuándo se solicita cada despliegue.
+
+## Cookies y consentimiento
+
+Rama de implementación: `feature/cookie-consent`. Se incluye un aviso informativo no bloqueante, panel accesible con `dialog` nativo y enlace permanente «Configurar cookies». El rechazo y la aceptación, cuando exista analítica configurada, tienen botones con igual presentación.
+
+El aviso puede cerrarse sin guardar preferencias ni aceptar cookies. El panel mantiene el foco al navegar con Tab y Shift+Tab, se cierra con Escape y devuelve el foco al control de apertura.
+
+Actualmente **no hay Analytics ni publicidad**. Solo se crea la cookie propia `am_privacy_preferences` al guardar una elección. Dura 180 días, con `Path=/`, `SameSite=Lax` y `Secure` en HTTPS. Conserva fecha, caducidad, versión y elección, sin identificadores aleatorios ni datos del formulario. Su función es recordar una preferencia solicitada; no se necesita instalarla durante la primera visita. No constituye un registro centralizado o inalterable de consentimiento. La cookie se transmite al host, por lo que deberán revisarse los registros del alojamiento.
+
+La categoría analítica aparece deshabilitada, sin consentimiento anticipado para futuros proveedores. Cookies ausentes, caducadas, dañadas o de otra versión bloquean las opcionales. Global Privacy Control bloquea también la analítica opcional de manera conservadora. La configuración se aplica igual a todos los visitantes, sin geolocalización.
+
+### Integración futura de Analytics
+
+1. Completar y revisar `/cookies`, `/privacidad` y `/aviso-legal` con los datos reales, proveedor, cookies, plazos, destinatarios, transferencias y normativa aplicable.
+2. Cambiar `COOKIE_POLICY_VERSION` y activar `analyticsAvailable` en `COOKIE_POLICY` **solo cuando exista el proveedor descrito**. Cambiar la versión invalida elecciones anteriores.
+3. Implementar un cargador de Analytics con Consent Mode **básico**: no insertar scripts, enviar eventos ni hacer solicitudes a Google mientras `CookieConsent.canUseAnalytics()` sea falso. La comprobación debe preceder a la carga y a cada evento, no solo ejecutarse una vez al arrancar.
+4. Implementar y verificar la retirada en el proveedor: detener eventos, actualizar consentimiento, retirar cookies de analítica accesibles en sus paths/domains reales y evitar nuevos envíos. Borrar un script no detiene por sí solo un SDK ya ejecutado. Esta rama no implementa un SDK ni un cargador ficticio.
+5. No enviar datos del formulario, correos, teléfonos, contenido libre ni URLs con datos personales. Revisar renovación del consentimiento, auditoría mínima necesaria, accesibilidad, navegación SPA, CSP y pruebas de red.
+
+La política actual se basa en España/UE y la guía AEPD, no certifica cumplimiento mundial. Los requisitos de otros países, menores, transferencias, contratos y tratamiento efectivo requieren revisión específica. No se añaden banners de publicidad o venta de datos para tratamientos inexistentes.

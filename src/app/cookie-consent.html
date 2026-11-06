@@ -1,0 +1,142 @@
+@if (consent.bannerVisible()) {
+  <aside class="cookie-banner" aria-labelledby="cookie-banner-title">
+    <button
+      class="cookie-banner-dismiss cookie-close"
+      type="button"
+      (click)="consent.dismissBanner()"
+      aria-label="Cerrar aviso sin guardar preferencias"
+    >
+      ×
+    </button>
+    <div class="cookie-banner-content">
+      <div class="cookie-banner-copy">
+        <p class="eyebrow">Privacidad por elección</p>
+        <h2 id="cookie-banner-title">Tú decides sobre tus cookies.</h2>
+        @if (consent.policy.analyticsAvailable) {
+          <p>
+            Alberto Maza Martín utiliza una cookie propia para recordar tu elección. Solo con tu
+            permiso se activará la analítica descrita en la
+            <a routerLink="/cookies">política de cookies</a>. Rechazar no limita el acceso a la web
+            ni al contacto.
+          </p>
+        } @else {
+          <p>
+            Actualmente no utilizamos analítica ni publicidad. Al guardar tu elección se crea
+            únicamente una cookie propia para recordarla durante seis meses. La analítica futura
+            necesitará una nueva elección informada. Cerrar el aviso no acepta cookies.
+            <a routerLink="/cookies">Política de cookies</a>.
+          </p>
+        }
+        @if (consent.globalPrivacyControl) {
+          <p>Se ha detectado Global Privacy Control. La analítica permanecerá bloqueada.</p>
+        }
+      </div>
+      <div class="cookie-actions">
+        @if (consent.policy.analyticsAvailable) {
+          <button class="cookie-button" type="button" (click)="choose(false)">
+            Rechazar opcionales
+          </button>
+          <button
+            class="cookie-button"
+            type="button"
+            (click)="choose(true)"
+            [disabled]="consent.globalPrivacyControl"
+          >
+            Aceptar analítica
+          </button>
+        } @else {
+          <button class="cookie-button" type="button" (click)="choose(false)">
+            Solo necesarias
+          </button>
+        }
+        <button class="cookie-button cookie-configure" type="button" (click)="openSettings()">
+          Configurar cookies
+        </button>
+      </div>
+    </div>
+    @if (consent.error()) {
+      <p class="cookie-error" role="alert">{{ consent.error() }}</p>
+    }
+  </aside>
+}
+
+<dialog
+  #settings
+  (keydown)="keepFocus($event)"
+  class="cookie-dialog"
+  aria-labelledby="cookie-settings-title"
+  aria-describedby="cookie-settings-description"
+>
+  <div class="cookie-dialog-header">
+    <div>
+      <p class="eyebrow">Tu privacidad</p>
+      <h2 id="cookie-settings-title">Preferencias de cookies</h2>
+    </div>
+    <button
+      class="cookie-close"
+      type="button"
+      (click)="closeSettings()"
+      aria-label="Cerrar preferencias sin guardar"
+    >
+      ×
+    </button>
+  </div>
+  <p id="cookie-settings-description">
+    Puedes cambiar tu elección cuando quieras desde «Configurar cookies» en el pie de página. Cerrar
+    este panel no acepta cookies ni modifica tu elección.
+  </p>
+  <div class="cookie-category">
+    <div>
+      <h3>Necesarias <span>Siempre activas</span></h3>
+      <p>
+        Recuerdan la elección que guardas, sin medir visitas ni elaborar perfiles. No se crea la
+        cookie hasta que guardes una preferencia.
+      </p>
+    </div>
+  </div>
+  <div class="cookie-category">
+    <label for="cookie-analytics"
+      ><h3>Analítica</h3>
+      @if (consent.policy.analyticsAvailable) {
+        <span
+          >Medición opcional de visitas y uso de la web. Consulta el proveedor, las cookies y sus
+          plazos en la política antes de activarla.</span
+        >
+      } @else {
+        <span
+          >No disponible: no hay ningún proveedor conectado. Esta opción no puede activarse y no
+          autoriza futuras herramientas.</span
+        >
+      }
+    </label>
+    <input
+      #analytics
+      id="cookie-analytics"
+      type="checkbox"
+      [disabled]="!consent.policy.analyticsAvailable || consent.globalPrivacyControl"
+      aria-describedby="cookie-analytics-note"
+    />
+  </div>
+  <p id="cookie-analytics-note" class="cookie-detail">
+    Sin publicidad, venta de datos ni personalización publicitaria. Si tu navegador comunica Global
+    Privacy Control, bloqueamos también la analítica opcional.
+  </p>
+  <p class="cookie-detail">
+    La cookie de preferencias conserva la versión del aviso, la fecha y la elección durante 180
+    días. No incluye nombre, correo ni un identificador de seguimiento.
+    <a routerLink="/cookies" (click)="closeSettings()">Leer la política de cookies</a>.
+  </p>
+  @if (consent.error()) {
+    <p class="cookie-error" role="alert">{{ consent.error() }}</p>
+  }
+  <div class="cookie-dialog-actions">
+    <button class="cookie-button" type="button" (click)="choose(false)">Rechazar opcionales</button>
+    <button class="cookie-button" type="button" (click)="saveSettings()">
+      Guardar preferencias
+    </button>
+  </div>
+  <p class="cookie-detail">
+    Retirar el permiso para analítica es tan sencillo como desmarcarla y guardar, o pulsar «Rechazar
+    opcionales». No afecta a la licitud de tratamientos anteriores.
+  </p>
+</dialog>

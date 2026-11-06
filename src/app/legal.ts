@@ -113,9 +113,12 @@ import { toSignal } from '@angular/core/rxjs-interop';
             <h2>6. Cookies y medición</h2>
             <p>
               Esta aplicación no incorpora herramientas de analítica, publicidad, fuentes remotas ni
-              rastreadores, y no instala cookies propias. Si se incorporan servicios externos en el
-              futuro, será necesario revisar sus tratamientos y las obligaciones de información y
-              consentimiento.
+              rastreadores. Al guardar tus preferencias, se crea una cookie propia para recordar la
+              elección durante 180 días, sin identificadores de seguimiento. La analítica está
+              deshabilitada y no se autoriza por anticipado. Puedes revisar la
+              <a routerLink="/cookies">política de cookies</a> y cambiar la elección desde
+              «Configurar cookies» en el pie de página. Antes de incorporar proveedores se revisarán
+              sus tratamientos, el consentimiento y las posibles transferencias internacionales.
             </p>
           }
         }
