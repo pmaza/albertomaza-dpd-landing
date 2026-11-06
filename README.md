@@ -37,6 +37,18 @@ No existe un backend, una conexión a proveedores ni una simulación de envío e
 
 Las rutas públicas se prerenderizan. Se incluyen idioma español, títulos, descripciones, metadatos sociales, HTML semántico y contenido orientado a servicios nacionales, con Salamanca como base. Los borradores legales tienen `noindex`.
 
-No se ha configurado dominio, alojamiento ni publicación. No se añaden URLs canónicas, sitemap con dominio inventado, herramientas de analítica, rastreadores ni fuentes remotas. Los datos estructurados, el sitemap definitivo y Search Console deberán revisarse cuando se decida publicar. Ninguna implementación garantiza una posición concreta en Google.
+No se ha configurado un dominio personalizado ni se ha publicado el sitio todavía. No se añaden URLs canónicas, sitemap con dominio inventado, herramientas de analítica, rastreadores ni fuentes remotas. Los datos estructurados, el sitemap definitivo y Search Console deberán revisarse cuando se decida publicar. Ninguna implementación garantiza una posición concreta en Google.
 
 Los documentos legales son borradores visibles como tales: antes de publicar deben completarse y revisarse con la identidad fiscal, domicilio legal, tratamientos y proveedores reales.
+
+## Publicación en Cloudflare Pages
+
+El workflow `.github/workflows/build-and-deploy.yml` compila y ejecuta las pruebas automáticamente al abrir o actualizar una pull request dirigida a `main`; también guarda `dist/dpdlanding/browser` como artefacto `dpd-landing-artifact`. Esta ejecución no despliega. Para publicar, inicia el workflow manualmente desde **Actions → Build and deploy → Run workflow**, selecciona la rama `main` y el entorno `development` o `production`. Esa ejecución compila `main` y despliega su artefacto en el proyecto Cloudflare Pages configurado para el entorno seleccionado.
+
+En **Settings → Environments**, configura en cada entorno (`development` y `production`) estos valores:
+
+- Secret `CLOUDFLARE_API_TOKEN`: token de API con permisos de despliegue de Cloudflare Pages.
+- Secret `CLOUDFLARE_ACCOUNT_ID`: identificador de la cuenta de Cloudflare.
+- Variable `CLOUDFLARE_PROJECT_NAME`: nombre del proyecto Cloudflare Pages de ese entorno.
+
+Configura un proyecto Pages diferente para cada entorno si quieres que desarrollo y producción publiquen sitios separados. Si `production` tiene revisores requeridos, GitHub pedirá aprobación antes de que el job acceda a sus secretos y despliegue. La disponibilidad de las reglas de protección de Environments en repositorios privados depende del plan de GitHub; el inicio manual del workflow permite controlar cuándo se solicita cada despliegue.
