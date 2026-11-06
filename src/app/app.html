@@ -57,7 +57,12 @@
     <span>© 2026 Alberto Maza Martín</span>
     <div>
       <a routerLink="/aviso-legal">Aviso legal</a><a routerLink="/privacidad">Privacidad</a>
+      <a routerLink="/cookies">Política de cookies</a>
+      <button class="footer-cookie-settings" type="button" (click)="cookies().openSettings()">
+        Configurar cookies
+      </button>
     </div>
     <span class="footer-note">Sin cookies de analítica ni publicidad</span>
   </div>
 </footer>
+<app-cookie-consent />
