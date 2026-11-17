@@ -1,11 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs><clipPath id="tile"><rect width="64" height="64" rx="12"/></clipPath></defs>
-  <g clip-path="url(#tile)">
-    <path fill="#142e45" d="M0 0h64v64H0z"/>
-    <path fill="#3d6064" d="M0 0h64L0 49z"/>
-    <path fill="#a9a49b" d="M64 0v46L35 22z"/>
-    <path fill="#d4c3b2" d="m64 42-46 22h46z"/>
-    <path fill="#fcfaf7" d="m14 21 23-10 14 16-18 24-19-15z"/>
-    <path fill="#3d6064" d="m24 25 11-5 7 9-9 12-9-7z"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="480" height="480" role="img"><title>Alberto Maza - favicon</title>
+<rect x="0.00" y="0.00" width="120.00" height="120.00" fill="#3F6F78"/>
+<rect x="11.00" y="11.00" width="6.00" height="98.00" fill="#FFFFFF"/>
+<rect x="11.00" y="11.00" width="98.00" height="6.00" fill="#FFFFFF"/>
+<rect x="11.00" y="103.00" width="79.00" height="6.00" fill="#FFFFFF"/>
+<rect x="103.00" y="11.00" width="6.00" height="79.00" fill="#FFFFFF"/>
+<circle cx="98" cy="98" r="6" fill="#EBDCCD"/>
+<polygon points="46.89,45.00 48.09,45.00 32.01,75.00 30.57,75.00" fill="#FFFFFF"/>
+<polygon points="48.09,45.00 50.25,45.00 55.77,75.00 51.93,75.00" fill="#FFFFFF"/>
+<polygon points="37.19,64.20 51.11,64.20 50.91,65.40 36.99,65.40" fill="#FFFFFF"/>
+<polygon points="44.97,45.00 48.81,45.00 48.61,46.20 44.77,46.20" fill="#FFFFFF"/>
+<polygon points="28.14,73.80 34.38,73.80 34.17,75.00 27.93,75.00" fill="#FFFFFF"/>
+<polygon points="49.26,73.80 58.86,73.80 58.65,75.00 49.05,75.00" fill="#FFFFFF"/>
+<polygon points="63.51,45.00 65.29,45.00 65.29,75.00 63.51,75.00" fill="#FFFFFF"/>
+<polygon points="63.51,45.00 68.10,45.00 76.77,75.00 72.69,75.00" fill="#FFFFFF"/>
+<polygon points="76.26,75.00 77.79,75.00 86.46,45.00 84.42,45.00" fill="#FFFFFF"/>
+<polygon points="85.44,45.00 89.01,45.00 89.01,75.00 85.44,75.00" fill="#FFFFFF"/>
+<polygon points="60.96,45.00 68.61,45.00 68.61,46.20 60.96,46.20" fill="#FFFFFF"/>
+<polygon points="82.38,45.00 91.56,45.00 91.56,46.20 82.38,46.20" fill="#FFFFFF"/>
+<polygon points="60.96,73.80 68.10,73.80 68.10,75.00 60.96,75.00" fill="#FFFFFF"/>
+<polygon points="82.38,73.80 92.07,73.80 92.07,75.00 82.38,75.00" fill="#FFFFFF"/>
 </svg>
