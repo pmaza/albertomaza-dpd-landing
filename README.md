@@ -41,17 +41,20 @@ No se ha configurado un dominio personalizado ni se ha publicado el sitio todav�
 
 Los documentos legales son borradores visibles como tales: antes de publicar deben completarse y revisarse con la identidad fiscal, domicilio legal, tratamientos y proveedores reales.
 
-## Publicación en Cloudflare Pages
+## Publicación manual en GitHub Pages
 
-El workflow `.github/workflows/build-and-deploy.yml` compila y ejecuta las pruebas automáticamente al abrir o actualizar una pull request dirigida a `main`; también guarda `dist/dpdlanding/browser` como artefacto `dpd-landing-artifact`. Esta ejecución no despliega. Para publicar, inicia el workflow manualmente desde **Actions → Build and deploy → Run workflow**, selecciona la rama `main` y el entorno `development` o `production`. Esa ejecución compila `main` y despliega su artefacto en el proyecto Cloudflare Pages configurado para el entorno seleccionado.
+El workflow `.github/workflows/build-and-deploy.yml` conserva las pruebas y la compilación automáticas para pull requests dirigidas a `main`, con el artefacto de revisión `dpd-landing-artifact`. **Las pull requests y los pushes no despliegan la web.** El despliegue solo se ejecuta mediante `workflow_dispatch` desde la rama `main`.
 
-En **Settings → Environments**, configura en cada entorno (`development` y `production`) estos valores:
+Para preparar la demo:
 
-- Secret `CLOUDFLARE_API_TOKEN`: token de API con permisos de despliegue de Cloudflare Pages.
-- Secret `CLOUDFLARE_ACCOUNT_ID`: identificador de la cuenta de Cloudflare.
-- Variable `CLOUDFLARE_PROJECT_NAME`: nombre del proyecto Cloudflare Pages de ese entorno.
+1. Incorpora este workflow y los cambios de rutas de los recursos a `main` y súbelos a GitHub.
+2. En **Settings → Pages → Build and deployment → Source**, selecciona **GitHub Actions**.
+3. En **Actions → Build and deploy to GitHub Pages → Run workflow**, selecciona `main` y confirma la ejecución. Seleccionar otra rama no publica.
+4. Cuando finalice el job `deploy`, abre la URL que aparece en el despliegue o en **Settings → Pages**.
 
-Configura un proyecto Pages diferente para cada entorno si quieres que desarrollo y producción publiquen sitios separados. Si `production` tiene revisores requeridos, GitHub pedirá aprobación antes de que el job acceda a sus secretos y despliegue. La disponibilidad de las reglas de protección de Environments en repositorios privados depende del plan de GitHub; el inicio manual del workflow permite controlar cuándo se solicita cada despliegue.
+No se necesitan secretos de Cloudflare ni tokens personales: se usa la identidad del workflow con permisos `pages: write` e `id-token: write` y el entorno `github-pages`. Si ese entorno exige aprobación, apruébala en GitHub. Cada ejecución manual publica una única demo y reemplaza la versión anterior; no hay entornos separados de desarrollo y producción.
+
+El workflow obtiene de GitHub Pages la subruta y URL reales, compila con el `base-href` correspondiente y publica únicamente `dist/dpdlanding/browser`. Los logos e iconos usan rutas relativas, compatibles tanto con local como con un sitio de proyecto bajo una subruta. La imagen Open Graph se convierte en una URL absoluta durante el build de despliegue. Las rutas legales se sirven desde sus directorios prerenderizados; GitHub Pages no ejecuta el servidor Node ni proporciona un backend al formulario.
 
 ## Cookies y consentimiento
 
