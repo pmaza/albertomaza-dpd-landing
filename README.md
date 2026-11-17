@@ -72,3 +72,12 @@ La categoría analítica aparece deshabilitada, sin consentimiento anticipado pa
 5. No enviar datos del formulario, correos, teléfonos, contenido libre ni URLs con datos personales. Revisar renovación del consentimiento, auditoría mínima necesaria, accesibilidad, navegación SPA, CSP y pruebas de red.
 
 La política actual se basa en España/UE y la guía AEPD, no certifica cumplimiento mundial. Los requisitos de otros países, menores, transferencias, contratos y tratamiento efectivo requieren revisión específica. No se añaden banners de publicidad o venta de datos para tratamientos inexistentes.
+
+## Agente de desarrollo Angular y SEO
+
+El agente personalizado `Angular + SEO`, disponible en `.github/agents/angular-seo.agent.md`, combina las skills del proyecto para Angular y SEO técnico:
+
+- `.github/skills/angular-development/SKILL.md`: patrones y comprobaciones para la versión Angular instalada, formularios reactivos y SSR/prerender.
+- `.github/skills/seo-technical/SKILL.md`: auditorías de indexabilidad, metadatos, renderizado y datos estructurados basadas en la documentación de Google.
+
+Selecciona `Angular + SEO` como agente del repositorio al trabajar en esta aplicación. Las skills siguen el formato de GitHub Copilot y se cargan cuando son relevantes. Para crearlas se contrastaron las [skills oficiales de Angular](https://github.com/angular/skills) —el proyecto anterior de Analog está obsoleto— y las guías de [Google Search Central](https://developers.google.com/search/docs/essentials) y [Angular SSR](https://angular.dev/guide/ssr).

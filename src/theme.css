@@ -73,22 +73,26 @@
   position: relative;
   padding: 12px 0 24px;
 }
-.portrait-frame {
+.brand-emblem-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-left: 30px;
   position: relative;
-  background: white;
-  border-radius: 150px 5px 5px 5px;
+  padding-bottom: 84px;
+  background: var(--teal);
+  border-radius: 4px;
   overflow: hidden;
   height: 492px;
-  box-shadow: 0 15px 50px #142e450a;
+  box-shadow: 0 15px 50px #142e451a;
 }
-.portrait-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
+.brand-emblem-frame img {
+  position: relative;
+  z-index: 1;
+  width: min(70%, 310px);
+  height: auto;
 }
-.portrait-corner {
+.brand-emblem-corner {
   position: absolute;
   top: 0;
   right: 0;
@@ -98,7 +102,7 @@
   clip-path: polygon(100% 0, 0 0, 100% 100%);
   z-index: 1;
 }
-.portrait-label {
+.brand-emblem-label {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -109,18 +113,18 @@
   display: grid;
   gap: 7px;
 }
-.portrait-label > span:first-child {
+.brand-emblem-label > span:first-child {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.57rem;
   color: #d4c3b2;
 }
-.portrait-label strong {
+.brand-emblem-label strong {
   font-family: var(--serif);
   font-size: 1.5rem;
   font-weight: 400;
 }
-.portrait-label > span:last-child {
+.brand-emblem-label > span:last-child {
   font-size: 0.7rem;
   color: #dce3e4;
 }
@@ -819,7 +823,7 @@ details[open] .faq-toggle::after {
   .hero h1 {
     font-size: 3.7rem;
   }
-  .portrait-frame {
+  .brand-emblem-frame {
     height: 470px;
     margin-left: 15px;
   }
@@ -892,15 +896,9 @@ details[open] .faq-toggle::after {
     padding-inline: 18px;
     gap: 15px;
   }
-  .portrait-frame {
+  .brand-emblem-frame {
     height: 420px;
-    border-top-left-radius: 100px;
-  }
-  .portrait-label {
-    padding: 22px 18px;
-  }
-  .portrait-label strong {
-    font-size: 1.3rem;
+    margin-left: 0;
   }
   .trust-inner {
     display: grid;
@@ -1043,12 +1041,9 @@ details[open] .faq-toggle::after {
     margin-inline: auto;
     padding-bottom: 10px;
   }
-  .portrait-frame {
+  .brand-emblem-frame {
     height: 470px;
-    margin-left: 20px;
-  }
-  .portrait-label strong {
-    font-size: 1.45rem;
+    margin-left: 0;
   }
   .hero-shape-one {
     width: 160px;
@@ -1168,7 +1163,7 @@ details[open] .faq-toggle::after {
     grid-template-columns: 1fr;
     gap: 0;
   }
-  .portrait-frame {
+  .brand-emblem-frame {
     height: 420px;
   }
   .hero-actions {

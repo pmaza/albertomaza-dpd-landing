@@ -202,15 +202,10 @@ p {
   gap: 13px;
   flex-shrink: 0;
 }
-.brand-mark {
-  font-family: var(--serif);
-  font-size: 2.7rem;
-  font-weight: 700;
-  letter-spacing: -0.12em;
-  line-height: 1;
-}
-.brand-mark span {
-  color: var(--teal);
+.brand-logo {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
 }
 .brand-name {
   font-size: 0.9rem;
@@ -251,14 +246,17 @@ p {
   padding-bottom: 43px;
 }
 .footer-brand {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   color: white;
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 16px;
 }
-.footer-brand span {
-  color: var(--sand);
+.footer-brand img {
+  width: 48px;
+  height: 48px;
 }
 .footer-top p {
   font-size: 0.82rem;
