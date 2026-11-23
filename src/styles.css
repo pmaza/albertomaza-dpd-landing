@@ -200,7 +200,7 @@ p {
   display: flex;
   align-items: center;
   gap: 13px;
-  flex-shrink: 0;
+  min-width: 0;
 }
 .brand-logo {
   width: 74px;
@@ -211,10 +211,13 @@ p {
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--navy);
+  min-width: 0;
 }
 .brand-name small {
   display: block;
-  margin-top: 6px;
+  margin-top: 4px;
+  max-width: 340px;
+  line-height: 1.35;
   color: var(--muted);
   font-size: 0.62rem;
   font-weight: 400;
@@ -224,6 +227,7 @@ p {
   align-items: center;
   gap: 26px;
   font-size: 0.77rem;
+  flex-shrink: 0;
 }
 .site-header nav > a:not(.button):hover {
   color: var(--teal);
@@ -359,6 +363,9 @@ p {
   }
   .brand-name {
     font-size: 0.8rem;
+  }
+  .brand-name small {
+    max-width: 240px;
   }
   .section {
     padding-block: 80px;

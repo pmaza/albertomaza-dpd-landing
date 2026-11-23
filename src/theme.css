@@ -24,18 +24,18 @@
 }
 .hero h1 {
   font-family: var(--serif);
-  font-size: clamp(3rem, 5.15vw, 4.85rem);
-  line-height: 1.05;
-  margin-bottom: 27px;
+  font-size: clamp(2.35rem, 4vw, 3.85rem);
+  line-height: 1.08;
+  margin-bottom: 24px;
 }
 .hero h1 > span {
   color: var(--teal);
   font-style: italic;
 }
 .hero-description {
-  max-width: 435px;
+  max-width: 500px;
   color: var(--muted);
-  font-size: 1rem;
+  font-size: 0.98rem;
   margin-bottom: 30px;
 }
 .hero-actions {
@@ -47,27 +47,25 @@
 .hero-actions > .text-link {
   font-size: 0.8rem;
 }
-.hero-proof {
+.hero-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 34px 0 0;
+  display: grid;
+  gap: 12px;
+}
+.hero-highlights li {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-top: 38px;
-  color: var(--teal);
+  gap: 11px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy);
 }
-.hero-proof svg {
-  width: 29px;
-  height: 33px;
-  flex-shrink: 0;
-}
-.hero-proof strong {
-  font-size: 0.78rem;
-  display: block;
-  margin-bottom: 5px;
-}
-.hero-proof div > span {
-  display: block;
-  font-size: 0.66rem;
-  color: var(--muted);
+.hero-highlights .note-mark {
+  width: 26px;
+  height: 26px;
+  font-size: 0.72rem;
 }
 .hero-visual {
   position: relative;
@@ -109,30 +107,19 @@
   right: 0;
   background: rgb(20 46 69 / 95%);
   color: white;
-  padding: 24px 28px;
+  padding: 22px 26px;
   display: grid;
-  gap: 7px;
-}
-.brand-emblem-label > span:first-child {
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.57rem;
-  color: #d4c3b2;
+  gap: 6px;
 }
 .brand-emblem-label strong {
   font-family: var(--serif);
   font-size: 1.5rem;
   font-weight: 400;
 }
-.brand-emblem-label > span:last-child {
-  font-size: 0.7rem;
+.brand-emblem-label > span {
+  font-size: 0.72rem;
+  line-height: 1.5;
   color: #dce3e4;
-}
-.hero-assurance {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 20px;
 }
 .note-mark {
   width: 33px;
@@ -143,19 +130,6 @@
   border-radius: 50%;
   background: #e6eeea;
   flex-shrink: 0;
-}
-.hero-assurance strong {
-  display: block;
-  font-size: 0.78rem;
-  line-height: 1.5;
-  margin-bottom: 5px;
-  color: var(--teal);
-}
-.hero-assurance div > span {
-  display: block;
-  font-size: 0.7rem;
-  line-height: 1.6;
-  color: var(--muted);
 }
 .visual-caption {
   display: block;
@@ -522,41 +496,61 @@
   clip-path: polygon(0 0, 100% 0, 100% 100%);
 }
 .about-copy > p:not(.eyebrow) {
-  font-size: 0.86rem;
+  font-size: 0.88rem;
   color: var(--muted);
 }
-.credentials {
-  margin: 25px 0;
-  list-style: none;
-  padding: 0;
+.about-experience {
+  margin-top: 56px;
+  padding-top: 44px;
+  border-top: 1px solid #dbd7cf;
 }
-.credentials li {
-  display: flex;
-  gap: 15px;
-  margin-block: 18px;
-  align-items: flex-start;
+.about-experience-title {
+  font-family: var(--serif);
+  font-size: clamp(1.45rem, 2.3vw, 1.95rem);
+  font-weight: 500;
+  color: var(--navy);
+  margin: 0 0 26px;
 }
-.credentials li > span {
-  color: var(--teal);
-  margin-top: 3px;
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
 }
-.credentials strong {
-  display: block;
-  font-size: 0.8rem;
-  line-height: 1.6;
-  font-weight: 600;
+.experience-card {
+  background: white;
+  padding: 22px 24px;
+  border-radius: 4px;
+  border: 1px solid var(--line);
 }
-.credentials div > span {
+.experience-card-featured {
+  grid-column: 1 / -1;
+  border-left: 3px solid var(--teal);
+}
+.experience-card h4 {
+  margin: 0 0 8px;
+  font-size: 0.94rem;
+  line-height: 1.4;
+  color: var(--navy);
+}
+.experience-card p {
+  margin: 0;
+  font-size: 0.82rem;
   color: var(--muted);
-  font-size: 0.72rem;
-  line-height: 1.7;
-  display: block;
-  margin-top: 3px;
+}
+.about-quote {
+  margin: 28px 0 0;
+  padding: 22px 26px;
+  background: var(--teal);
+  color: white;
+  border-radius: 4px;
+  font-family: var(--serif);
+  font-size: clamp(1.02rem, 1.5vw, 1.24rem);
+  line-height: 1.55;
 }
 .process-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 38px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 42px;
   margin-top: 43px;
 }
 .step-number {
@@ -697,11 +691,17 @@ details[open] .faq-toggle::after {
   font-weight: 600;
   overflow-wrap: anywhere;
 }
+.contact-copy .contact-hours,
 .contact-copy .contact-location {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.76rem !important;
+  font-size: 0.78rem !important;
+}
+.contact-copy .contact-hours {
+  margin-bottom: 10px;
+  color: var(--navy);
+  font-weight: 600;
 }
 .contact-form {
   background: white;
@@ -739,7 +739,7 @@ details[open] .faq-toggle::after {
   color: var(--muted);
   font-weight: 400;
 }
-.field input,
+.field input:not([type='checkbox']),
 .field select,
 .field textarea {
   width: 100%;
@@ -777,12 +777,29 @@ details[open] .faq-toggle::after {
   margin-top: 8px;
   line-height: 1.6;
 }
-.form-privacy {
-  font-size: 0.68rem;
-  color: var(--muted);
-  line-height: 1.7;
+.field-checkbox {
+  margin-bottom: 20px;
 }
-.form-privacy a {
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.74rem;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.6;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+.checkbox-label input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  flex-shrink: 0;
+  accent-color: var(--teal);
+  cursor: pointer;
+}
+.checkbox-label a {
   color: var(--teal);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -819,7 +836,7 @@ details[open] .faq-toggle::after {
     min-height: 550px;
   }
   .hero h1 {
-    font-size: 3.7rem;
+    font-size: clamp(2.1rem, 4.4vw, 3.1rem);
   }
   .brand-emblem-frame {
     height: 470px;
@@ -914,10 +931,13 @@ details[open] .faq-toggle::after {
     max-width: 220px;
     font-size: 0.8rem;
   }
-  .sectors-grid,
-  .process-grid {
+  .sectors-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
+  }
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
   .sector-card h3 {
     min-height: auto;
@@ -986,23 +1006,27 @@ details[open] .faq-toggle::after {
   .faq-list summary {
     font-size: 0.95rem;
   }
-  .field input,
+  .field input:not([type='checkbox']),
   .field select,
   .field textarea {
     font-size: 1rem;
   }
-  .field label {
+  .field label:not(.checkbox-label) {
     font-size: 0.85rem;
   }
-  .form-intro,
-  .credentials strong {
+  .form-intro {
     font-size: 0.9rem;
   }
-  .credentials div > span,
-  .form-privacy,
+  .checkbox-label,
   .local-notice,
   .field-error {
-    font-size: 0.8rem;
+    font-size: 0.82rem;
+  }
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+  .experience-card p {
+    font-size: 0.9rem;
   }
   .field-hint {
     font-size: 0.75rem;
@@ -1018,7 +1042,7 @@ details[open] .faq-toggle::after {
     padding: 0;
   }
   .hero h1 {
-    font-size: clamp(2rem, 9.3vw, 3.8rem);
+    font-size: clamp(1.9rem, 7.2vw, 2.75rem);
   }
   .hero-copy > .eyebrow {
     font-size: 0.6rem;
@@ -1030,8 +1054,8 @@ details[open] .faq-toggle::after {
   .hero-actions {
     gap: 20px;
   }
-  .hero-proof {
-    margin-top: 25px;
+  .hero-highlights {
+    margin-top: 24px;
   }
   .hero-visual {
     max-width: 440px;

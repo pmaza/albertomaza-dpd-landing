@@ -21,9 +21,9 @@ describe('App', () => {
   it('renders the landing with nationwide coverage', async () => {
     const harness = await RouterTestingHarness.create('/');
     expect(harness.routeNativeElement?.querySelector('h1')?.textContent).toContain(
-      'Mi compromiso.',
+      'Cumplimiento real y adaptado de protección de datos',
     );
-    expect(harness.routeNativeElement?.textContent).toContain('Empresas de toda España');
+    expect(harness.routeNativeElement?.textContent).toContain('Salamanca y toda España');
   });
 
   it('rejects an empty request without creating an email draft', async () => {
@@ -38,35 +38,49 @@ describe('App', () => {
     expect(harness.routeNativeElement?.querySelector('.draft-result')).toBeNull();
   });
 
-  it('prepares an encoded email draft and clears it when the request changes', async () => {
+  it('requires accepting the privacy policy before preparing an email draft', async () => {
     const harness = await RouterTestingHarness.create('/');
     const root = harness.routeNativeElement!;
     const fill = (selector: string, value: string) => {
-      const input = root.querySelector<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(
-        selector,
-      )!;
+      const input = root.querySelector<HTMLInputElement | HTMLTextAreaElement>(selector)!;
       input.value = value;
-      input.dispatchEvent(
-        new Event(input.tagName === 'SELECT' ? 'change' : 'input', { bubbles: true }),
-      );
+      input.dispatchEvent(new Event('input', { bubbles: true }));
     };
+    const privacy = root.querySelector<HTMLInputElement>('#privacyAccepted')!;
+    expect(privacy.checked).toBe(false);
+
     fill('#name', 'Ana García');
-    fill('#email', 'ana@example.com');
     fill('#company', 'Clínica & Salud');
-    fill('#service', 'DPD externo');
+    fill('#email', 'ana@example.com');
+    fill('#sector', 'Sanidad y clínicas');
     fill('#message', 'Necesito asesoramiento para una clínica en Madrid.');
+
     root
       .querySelector('form')!
       .dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
     harness.detectChanges();
+    expect(root.querySelector('#privacy-error')?.textContent).toContain('Política de Privacidad');
+    expect(root.querySelector('.draft-result')).toBeNull();
+
+    privacy.click();
+    harness.detectChanges();
+    root
+      .querySelector('form')!
+      .dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+    harness.detectChanges();
+
     const link = root.querySelector<HTMLAnchorElement>('.draft-result a')!;
     expect(link.getAttribute('href')).toMatch(/^mailto:albertodatos@mazadpd\.com\?subject=/);
     const url = new URL(link.href);
-    expect(url.searchParams.get('body')).toContain('Empresa u organización: Clínica & Salud');
+    expect(url.searchParams.get('body')).toContain('Empresa / Organización: Clínica & Salud');
+    expect(url.searchParams.get('body')).toContain(
+      'Sector o tipo de actividad: Sanidad y clínicas',
+    );
     expect(url.searchParams.get('body')).toContain(
       'Necesito asesoramiento para una clínica en Madrid.',
     );
     expect(root.querySelector('.draft-result')?.textContent).toContain('todavía no enviada');
+
     fill('#email', 'otro@example.com');
     harness.detectChanges();
     expect(root.querySelector('.draft-result')).toBeNull();
