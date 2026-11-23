@@ -22,8 +22,9 @@ npm test -- --watch=false
 - `src\app\app.*`: navegación responsive y pie de página.
 - `src\app\legal.ts`: borradores legales y página no encontrada.
 - `src\styles.css` y `theme.css`: identidad visual y adaptación a móvil.
-- `public\alberto-maza.webp`: fotografía extraída del dossier proporcionado.
-- `public\favicon.ico`: icono geométrico multirresolución (16, 32, 48, 64, 128 y 256 px), con los colores del dossier. Incluye una alternativa vectorial en `favicon.svg`.
+- `public\logo-alberto-maza.png` y `logo-alberto-maza-blanco.png`: logotipo oficial AMM Protección de Datos sobre fondo transparente para fondos claros y oscuros.
+- `public\logo-alberto-maza-social.png`: imagen Open Graph (1200×630 px) con el logotipo oficial.
+- `public\favicon.ico`: icono AMM multirresolución (16, 32, 48, 64, 128 y 256 px), junto con `favicon.svg`, `favicon-32.png` y `apple-touch-icon.png`.
 
 ## Diseño móvil
 
