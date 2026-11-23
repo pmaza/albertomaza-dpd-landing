@@ -89,7 +89,7 @@
 .brand-emblem-frame img {
   position: relative;
   z-index: 1;
-  width: min(70%, 310px);
+  width: min(76%, 340px);
   height: auto;
 }
 .brand-emblem-corner {
@@ -486,14 +486,12 @@
   overflow: hidden;
   border-radius: 4px;
 }
-.about-monogram {
-  font-family: var(--serif);
-  font-size: 10rem;
-  letter-spacing: -0.13em;
-  line-height: 1.2;
-}
-.about-monogram span {
-  color: var(--sand);
+.about-logo {
+  position: relative;
+  z-index: 1;
+  width: min(78%, 240px);
+  height: auto;
+  margin-top: 12px;
 }
 .about-art-text {
   position: absolute;
@@ -861,8 +859,8 @@ details[open] .faq-toggle::after {
     padding: 30px;
     height: 465px;
   }
-  .about-monogram {
-    font-size: 8rem;
+  .about-logo {
+    width: min(82%, 210px);
   }
   .about-art-text {
     left: 30px;
@@ -932,8 +930,8 @@ details[open] .faq-toggle::after {
     height: 390px;
     padding: 20px;
   }
-  .about-monogram {
-    font-size: 6.2rem;
+  .about-logo {
+    width: min(82%, 175px);
   }
   .about-art-triangle {
     width: 170px;
@@ -1074,8 +1072,9 @@ details[open] .faq-toggle::after {
     max-width: 440px;
     width: 100%;
   }
-  .about-monogram {
-    font-size: 7rem;
+  .about-logo {
+    width: 170px;
+    margin-top: 20px;
   }
   .about-art-text {
     left: auto;

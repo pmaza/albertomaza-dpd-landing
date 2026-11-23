@@ -1,22 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="480" height="480" role="img"><title>Alberto Maza - favicon</title>
-<rect x="0.00" y="0.00" width="120.00" height="120.00" fill="#3F6F78"/>
-<rect x="11.00" y="11.00" width="6.00" height="98.00" fill="#FFFFFF"/>
-<rect x="11.00" y="11.00" width="98.00" height="6.00" fill="#FFFFFF"/>
-<rect x="11.00" y="103.00" width="79.00" height="6.00" fill="#FFFFFF"/>
-<rect x="103.00" y="11.00" width="6.00" height="79.00" fill="#FFFFFF"/>
-<circle cx="98" cy="98" r="6" fill="#EBDCCD"/>
-<polygon points="46.89,45.00 48.09,45.00 32.01,75.00 30.57,75.00" fill="#FFFFFF"/>
-<polygon points="48.09,45.00 50.25,45.00 55.77,75.00 51.93,75.00" fill="#FFFFFF"/>
-<polygon points="37.19,64.20 51.11,64.20 50.91,65.40 36.99,65.40" fill="#FFFFFF"/>
-<polygon points="44.97,45.00 48.81,45.00 48.61,46.20 44.77,46.20" fill="#FFFFFF"/>
-<polygon points="28.14,73.80 34.38,73.80 34.17,75.00 27.93,75.00" fill="#FFFFFF"/>
-<polygon points="49.26,73.80 58.86,73.80 58.65,75.00 49.05,75.00" fill="#FFFFFF"/>
-<polygon points="63.51,45.00 65.29,45.00 65.29,75.00 63.51,75.00" fill="#FFFFFF"/>
-<polygon points="63.51,45.00 68.10,45.00 76.77,75.00 72.69,75.00" fill="#FFFFFF"/>
-<polygon points="76.26,75.00 77.79,75.00 86.46,45.00 84.42,45.00" fill="#FFFFFF"/>
-<polygon points="85.44,45.00 89.01,45.00 89.01,75.00 85.44,75.00" fill="#FFFFFF"/>
-<polygon points="60.96,45.00 68.61,45.00 68.61,46.20 60.96,46.20" fill="#FFFFFF"/>
-<polygon points="82.38,45.00 91.56,45.00 91.56,46.20 82.38,46.20" fill="#FFFFFF"/>
-<polygon points="60.96,73.80 68.10,73.80 68.10,75.00 60.96,75.00" fill="#FFFFFF"/>
-<polygon points="82.38,73.80 92.07,73.80 92.07,75.00 82.38,75.00" fill="#FFFFFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="480" height="480" role="img">
+  <title>Alberto Maza Martín - logotipo AMM</title>
+  <rect width="120" height="120" fill="#3d6064" />
+  <g transform="translate(13.2 31.2) scale(0.08611)" fill="#ffffff">
+    <path
+      fill-rule="evenodd"
+      d="M 187 1 A 186 202.5 0 1 0 187 406 A 186 202.5 0 1 0 187 1 Z M 200.5 57 A 133.5 146.5 0 1 1 200.5 350 A 133.5 146.5 0 1 1 200.5 57 Z"
+    />
+    <rect x="334" y="8" width="65" height="393" />
+    <rect x="455" y="8" width="64" height="661" />
+    <rect x="739" y="110" width="63" height="559" />
+    <rect x="1022" y="173" width="64" height="496" />
+    <path d="M 486 177 A 158 174 0 0 1 802 175 L 802 178 L 739 178 L 739 175 A 110 119 0 0 0 519 175 L 519 178 L 486 178 Z" />
+    <path d="M 770 177 A 158 174 0 0 1 1086 175 L 1086 178 L 1022 178 L 1022 175 A 110 119 0 0 0 802 175 L 802 178 L 770 178 Z" />
+    <path d="M 486 445 A 158 174 0 0 1 802 443 L 802 446 L 739 446 L 739 443 A 110 119 0 0 0 519 443 L 519 446 L 486 446 Z" />
+    <path d="M 770 445 A 158 174 0 0 1 1086 443 L 1086 446 L 1022 446 L 1022 443 A 110 119 0 0 0 802 443 L 802 446 L 770 446 Z" />
+  </g>
 </svg>
